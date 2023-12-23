@@ -1,7 +1,7 @@
 import smtplib
 import datetime as dt
-import random
 import pandas
+import secrets
 
 my_email = "febstarowen@gmail.com"
 password = "gsgbgbeqxnwlvibq"
@@ -19,7 +19,7 @@ for i in range(len(to_send['name'])):
     b_month = b_day.month
     d_day = b_day.day
     if month == b_month and day == d_day:
-        with open(f"letter_templates/letter_{random.randint(1,3)}.txt") as file:
+        with open(f"letter_templates/letter_{secrets.SystemRandom().randint(1,3)}.txt") as file:
             letter = file.read()
             final_letter = letter.replace("[NAME]", name)
             with open(f"letter_templates/birthday for {name}.txt",mode="w") as complete:
